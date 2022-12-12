@@ -35,6 +35,13 @@ namespace CleanPCClub
             
 
         }
+        void EditRecord(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridClients.SelectedItem;
+            ClientEditor clientEditor = new ClientEditor(dataRow);
+            clientEditor.Show();
+            
+        }
 
         private void ChangeText(object sender, RoutedEventArgs e)
         {
@@ -56,6 +63,11 @@ namespace CleanPCClub
         {
             ClientEditor clientEditor = new ClientEditor();
             clientEditor.Show();
+        }
+
+        private void Update_Table(object sender, RoutedEventArgs e)
+        {
+            Client.SearchAll(dataGridClients);
         }
     }
 }

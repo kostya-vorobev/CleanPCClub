@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,22 +21,29 @@ namespace CleanPCClub
     /// </summary>
     public partial class ClientEditor : Window
     {
-        private int check;
-
-        public ClientEditor(int check)
+        private Client clientEdit;
+        public ClientEditor(DataRowView dataRow)
         {
             InitializeComponent();
-            this.check = check;
-            if (check == 1)
-            {
-                headerLabel.Content = "Изменение данных клиента";
-                Grand_B.Content = "Обновить";
-            }
+            clientEdit = new Client(dataRow);
+            Login_TB.Text = clientEdit.Login;
+            Pass_TB.Text = clientEdit.Password;
+            Name_TB.Text = clientEdit.Name;
+            LastName_TB.Text = clientEdit.LastName;
+            Phone_TB.Text = clientEdit.Phone;
+            DateBrith_DP.SelectedDate = clientEdit.DateBrith;
+            Email_TB.Text = clientEdit.Email;
+            headerLabel.Content = "Изменение данных клиента";
+            Grand_B.Content = "Обновить";
         }
         public ClientEditor()
         {
             InitializeComponent();
+            clientEdit = new Client();
         }
+
+
+
         private void Insert()
         {
             try
@@ -66,7 +74,7 @@ namespace CleanPCClub
         }
         private void Grand_Click(object sender, RoutedEventArgs e)
         {
-            if (check == 1)
+            if (clientEdit != null)
             {
                 Update();
             }
@@ -96,8 +104,11 @@ namespace CleanPCClub
         {
             try
             {
+                if (clientEdit.Login != Login_TB.Text)
+                    if (Client.SearchLogin(Login_TB.Text))
+                        throw new Exception("Данынй логин занят, попробуйте другой");
                 CheckData();
-                Client client = new Client(Login_TB.Text, Pass_TB.Text, Name_TB.Text, LastName_TB.Text,
+                Client client = new Client(clientEdit.Id, Login_TB.Text, Pass_TB.Text, Name_TB.Text, LastName_TB.Text,
                     DateBrith_DP.SelectedDate.Value, Phone_TB.Text, Email_TB.Text);
                 if (client.Update())
                 {

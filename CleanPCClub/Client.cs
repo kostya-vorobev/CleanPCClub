@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,6 @@ namespace CleanPCClub
             this.phone = phone;
             this.email = email;
         }
-
         public Client(int id, string login, string password, string name, string lastName, DateTime dateBrith, string phone, string email)
         {
             this.id = id;
@@ -42,6 +42,18 @@ namespace CleanPCClub
             this.dateBrith = dateBrith;
             this.phone = phone;
             this.email = email;
+        }
+
+        public Client(DataRowView dataTable)
+        {
+            this.id = Convert.ToInt32(dataTable["Id"].ToString());
+            this.login = dataTable["Login"].ToString();
+            this.password = dataTable["Password"].ToString();
+            this.name = dataTable["Name"].ToString();
+            this.lastName = dataTable["Last_Name"].ToString();
+            this.dateBrith = Convert.ToDateTime(dataTable["Date_brith"].ToString());
+            this.phone = dataTable["Phone"].ToString();
+            this.email = dataTable["Email"].ToString();
         }
 
         public int Id { get => id; set => id = value; }
@@ -67,13 +79,13 @@ namespace CleanPCClub
 
         public bool Insert()
         {
-            MySqlLib.MySqlData.MySqlExecuteData.MyResultData result = new MySqlLib.MySqlData.MySqlExecuteData.MyResultData();
+            MySqlLib.MySqlData.MySqlExecute.MyResult result = new MySqlLib.MySqlData.MySqlExecute.MyResult();
             string query = "INSERT INTO `pcclub`.`clients` " +
                 "(`Login`, `Password`, `Name`, `Last_name`, `Date_brith`, `Phone`, `Email`) VALUES " +
                 "('" + this.Login + "', '" + this.Password + "'," +
                 "'" + this.Name + "','" + this.LastName + "','" + this.DateBrith.Year + "-" + this.DateBrith.Month + "-"
                 + this.DateBrith.Day + "','" + this.Phone + "'," + "'" + this.Email + "')";
-            result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(query);
+            result = MySqlLib.MySqlData.MySqlExecute.SqlScalar(query);
             if (result.HasError == false)
             {
                 return true;
@@ -83,16 +95,16 @@ namespace CleanPCClub
 
         public bool Update()
         {
-            MySqlLib.MySqlData.MySqlExecuteData.MyResultData result = new MySqlLib.MySqlData.MySqlExecuteData.MyResultData();
-            string query = "UPDATE Products SET " +
+            MySqlLib.MySqlData.MySqlExecute.MyResult result = new MySqlLib.MySqlData.MySqlExecute.MyResult();
+            string query = "UPDATE clients SET " +
                 "Login = '" + this.Login + "', " +
                 "Password = '" + this.Password + "'," +
                 "Name = '" + this.Name + "'," +
                 "Last_name = '" + this.LastName + "'," +
-                "Date_brith = '" + this.DateBrith + "'," +
-                "Email = '" + this.Email + "'," +
-                "WHERE Login = '" + this.Login + "'";
-            result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(query);
+                "Date_brith = '" + this.DateBrith.Year + "-" + this.DateBrith.Month + "-" + this.DateBrith.Day + "',"+
+                "Email = '" + this.Email + "' " +
+                "WHERE Id = " + this.Id;
+            result = MySqlLib.MySqlData.MySqlExecute.SqlNoneQuery(query);
             if (result.HasError == false)
             {
                 return true;
@@ -127,7 +139,7 @@ namespace CleanPCClub
             string select = "select * from Clients where Login='" + find + "'";
 
             result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(select);
-            if (result.ResultData.DefaultView.Table.Rows.Count == 0)
+            if (result.ResultData.DefaultView.Table.Rows.Count == 1)
             {
                 return true;
             }else return false;

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:CleanPCClub"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid>
         <TextBox x:Name="login_TB" HorizontalAlignment="Left" Height="23" Margin="328,159,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="Pass_PB" HorizontalAlignment="Left" Width="120" Margin="328,210,0,0" VerticalAlignment="Top" Password="Admin"/>

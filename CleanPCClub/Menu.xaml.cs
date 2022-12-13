@@ -36,5 +36,13 @@ namespace CleanPCClub
             clientWindow.Show();
             this.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PCWindow pC = new PCWindow();
+            this.Hide();
+            pC.Show();
+            this.Show();
+        }
     }
 }

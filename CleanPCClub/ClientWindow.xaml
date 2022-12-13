@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:CleanPCClub"
         mc:Ignorable="d"
         Title="ClientWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="329*"/>
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dataGridClients" Margin="0,98,0,0" Grid.RowSpan="2" ColumnWidth="*" IsTextSearchCaseSensitive="True" IsTextSearchEnabled="True">
+        <DataGrid x:Name="dataGridClients" Margin="0,98,0,0" Grid.RowSpan="2" ColumnWidth="*" IsTextSearchCaseSensitive="True" IsTextSearchEnabled="True" Background="White" BorderBrush="#FF3179BF" Foreground="#FFECECEC">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Редактировать" Click="EditRecord"/>
@@ -29,11 +29,11 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="ChangeText"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBox x:Name="search_TB" HorizontalAlignment="Left" Height="23" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged"/>
         <Button Content="Создать пользователя" HorizontalAlignment="Left" Margin="599,10,0,0" VerticalAlignment="Top" Width="183" Height="58" Click="Button_Click_1"/>
         <Button Content="Поиск" HorizontalAlignment="Left" Margin="215,50,0,0" VerticalAlignment="Top" Width="75" Click="ChangeText" Height="23"/>
-        <Button Content="Обновить" HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="75" Click="Update_Table" Height="23"/>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="96" Click="Update_Table" Height="23"/>
 
     </Grid>
 </Window>

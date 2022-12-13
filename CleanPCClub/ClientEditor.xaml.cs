@@ -139,7 +139,7 @@ namespace CleanPCClub
             }
             else
             {
-                Login_TB.Foreground = Brushes.Black;
+                Login_TB.Foreground = Brushes.WhiteSmoke;
             }
         }
 
@@ -147,7 +147,7 @@ namespace CleanPCClub
         {
             if (Phone_TB.Text.Length == 11)
             {
-                Phone_TB.Foreground = Brushes.Black;
+                Phone_TB.Foreground = Brushes.WhiteSmoke;
             }
             else
             {
@@ -160,7 +160,7 @@ namespace CleanPCClub
             Regex rex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
             if (rex.IsMatch(Email_TB.Text))
             {
-                Email_TB.Foreground = Brushes.Black;
+                Email_TB.Foreground = Brushes.WhiteSmoke;
             }
             else
             {
@@ -178,7 +178,7 @@ namespace CleanPCClub
                 }
                 else
                 {
-                    DateBrith_DP.Foreground = Brushes.Black;
+                    DateBrith_DP.Foreground = Brushes.WhiteSmoke;
                 }
             }catch
             {
@@ -194,7 +194,7 @@ namespace CleanPCClub
             }
             else
             {
-                Pass_TB.Foreground = Brushes.Black;
+                Pass_TB.Foreground = Brushes.WhiteSmoke;
             }
         }
 
@@ -206,7 +206,7 @@ namespace CleanPCClub
             }
             else
             {
-                LastName_TB.Foreground = Brushes.Black;
+                LastName_TB.Foreground = Brushes.WhiteSmoke;
             }
         }
 
@@ -218,7 +218,7 @@ namespace CleanPCClub
             }
             else
             {
-                Name_TB.Foreground = Brushes.Black;
+                Name_TB.Foreground = Brushes.WhiteSmoke;
             }
         }
 

@@ -8,16 +8,10 @@ using System.Windows.Controls;
 
 namespace CleanPCClub
 {
-    class Client
+    class Client : Human
     {
-        private int id;
         private string login;
         private string password;
-        private string name;
-        private string lastName;
-        private DateTime dateBrith;
-        private string phone;
-        private string email;
 
         public Client()
         {
@@ -56,14 +50,14 @@ namespace CleanPCClub
             this.email = dataTable["Email"].ToString();
         }
 
-        public int Id { get => id; set => id = value; }
+        public override int Id { get => id; set => id = value; }
         public string Login { get => login; set => login = value; }
         public string Password { get => password; set => password = value; }
-        public string Name { get => name; set => name = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public DateTime DateBrith { get => dateBrith; set => dateBrith = value; }
-        public string Phone { get => phone; set => phone = value; }
-        public string Email { get => email; set => email = value; }
+        public override string Name { get => name; set => name = value; }
+        public override string LastName { get => lastName; set => lastName = value; }
+        public override DateTime DateBrith { get => dateBrith; set => dateBrith = value; }
+        public override string Phone { get => phone; set => phone = value; }
+        public override string Email { get => email; set => email = value; }
 
         public static void SearchAll(DataGrid _dgv)
         {
@@ -77,7 +71,7 @@ namespace CleanPCClub
             }
         }
 
-        public bool Insert()
+        public override bool Insert()
         {
             MySqlLib.MySqlData.MySqlExecute.MyResult result = new MySqlLib.MySqlData.MySqlExecute.MyResult();
             string query = "INSERT INTO `pcclub`.`clients` " +
@@ -93,7 +87,7 @@ namespace CleanPCClub
             else return false;
         }
 
-        public bool Update()
+        public override bool Update()
         {
             MySqlLib.MySqlData.MySqlExecute.MyResult result = new MySqlLib.MySqlData.MySqlExecute.MyResult();
             string query = "UPDATE clients SET " +
@@ -143,6 +137,18 @@ namespace CleanPCClub
             {
                 return true;
             }else return false;
+        }
+        public static string SearchLogin(int find)
+        {
+            MySqlLib.MySqlData.MySqlExecuteData.MyResultData result = new MySqlLib.MySqlData.MySqlExecuteData.MyResultData();
+            string select = "select * from Clients where Id=" + find;
+
+            result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(select);
+            if (result.ResultData.DefaultView.Table.Rows.Count == 1)
+            {
+                return result.ResultData.DefaultView.Table.Rows[0]["Login"].ToString();
+            }
+            else return "None";
         }
 
 

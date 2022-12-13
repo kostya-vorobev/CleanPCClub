@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="CleanPCClub.PCControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CleanPCClub"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="250">
+    <Grid Margin="0,0,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="230">
+            <Label x:Name="pcId" Content="Компьютер"/>
+            <Image Height="100" Source="Resource\pc.png" OpacityMask="White"/>
+            <Label x:Name="pcLoginClient" Content="Логин" Margin="0,10,0,0"/>
+            <Label x:Name="pcStatus" Content="Занят"/>
+            <Button x:Name="pcButton" Content="Заблокировать" Margin="0,40,0,0" Click="pcButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

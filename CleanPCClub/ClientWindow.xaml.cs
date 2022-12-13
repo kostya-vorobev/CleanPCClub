@@ -37,9 +37,16 @@ namespace CleanPCClub
         }
         void EditRecord(object sender, RoutedEventArgs e)
         {
-            DataRowView dataRow = (DataRowView)dataGridClients.SelectedItem;
-            ClientEditor clientEditor = new ClientEditor(dataRow);
-            clientEditor.Show();
+            try
+            {
+                DataRowView dataRow = (DataRowView)dataGridClients.SelectedItem;
+                ClientEditor clientEditor = new ClientEditor(dataRow);
+                clientEditor.Show();
+            }catch(Exception ex)
+            {
+                ClientEditor clientEditor = new ClientEditor();
+                clientEditor.Show();
+            }
             
         }
 

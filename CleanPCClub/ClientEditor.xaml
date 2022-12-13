@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="ClientAdd" Height="300" Width="393.333">
     <Grid>
-        <TextBox x:Name="Login_TB" HorizontalAlignment="Left" Height="23" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="Pass_TB" HorizontalAlignment="Left" Height="23" Margin="10,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Pass_TB_TextChanged"/>
-        <TextBox x:Name="Name_TB" HorizontalAlignment="Left" Height="23" Margin="161,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Name_TB_TextChanged"/>
-        <TextBox x:Name="LastName_TB" HorizontalAlignment="Left" Height="23" Margin="161,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="LastName_TB_TextChanged"/>
-        <TextBox x:Name="Phone_TB" HorizontalAlignment="Left" Height="23" Margin="161,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Phone_TB_TextChanged"/>
+        <TextBox x:Name="Login_TB" HorizontalAlignment="Left" Height="23" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Foreground="#FFF3F3F3"/>
+        <TextBox x:Name="Pass_TB" HorizontalAlignment="Left" Height="23" Margin="10,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Pass_TB_TextChanged" Foreground="#FFF3F3F3"/>
+        <TextBox x:Name="Name_TB" HorizontalAlignment="Left" Height="23" Margin="161,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Name_TB_TextChanged" Foreground="#FFF3F3F3"/>
+        <TextBox x:Name="LastName_TB" HorizontalAlignment="Left" Height="23" Margin="161,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="LastName_TB_TextChanged" Foreground="#FFF3F3F3"/>
+        <TextBox x:Name="Phone_TB" HorizontalAlignment="Left" Height="23" Margin="161,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Phone_TB_TextChanged" Foreground="#FFF3F3F3"/>
         <DatePicker x:Name="DateBrith_DP" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="120" LostFocus="DateBrith_DP_LostFocus"/>
-        <TextBox x:Name="Email_TB" HorizontalAlignment="Left" Height="23" Margin="10,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Email_TB_TextChanged"/>
+        <TextBox x:Name="Email_TB" HorizontalAlignment="Left" Height="23" Margin="10,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Email_TB_TextChanged" Foreground="#FFF3F3F3"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="8,24,0,0" VerticalAlignment="Top"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="8,78,0,0" VerticalAlignment="Top"/>
         <Label Content="Дата рождения" HorizontalAlignment="Left" Margin="8,132,0,0" VerticalAlignment="Top"/>
@@ -22,8 +22,8 @@
         <Label Content="Имя" HorizontalAlignment="Left" Margin="159,24,0,0" VerticalAlignment="Top"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="8,185,0,0" VerticalAlignment="Top"/>
         <Label Content="Создание записи клиента" Name="headerLabel" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Grand_B" Content="Добавить" HorizontalAlignment="Left" Margin="290,225,0,0" VerticalAlignment="Top" Width="75" Click="Grand_Click"/>
-        <Button Content="Назад" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="75" Click="Back_Click"/>
+        <Button x:Name="Grand_B" Content="Добавить" HorizontalAlignment="Left" Margin="274,225,0,0" VerticalAlignment="Top" Width="91" Click="Grand_Click" Foreground="#FFF3F3F3"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="75" Click="Back_Click" Foreground="#FFF3F3F3"/>
 
     </Grid>
 </Window>

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CleanPCClub"
         mc:Ignorable="d"
-        Title="ClientWindow" Height="450" Width="800">
-    <Grid Background="Black">
+        Title="Клиенты" Height="450" Width="800">
+    <Grid Background="#FF515151">
         <Grid.RowDefinitions>
             <RowDefinition Height="329*"/>
             <RowDefinition Height="90*"/>

@@ -19,6 +19,7 @@ namespace CleanPCClub
     /// </summary>
     public partial class Menu : Window
     {
+        private Users session;
         public Menu(Users user)
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace CleanPCClub
             {
                 managerReg.Visibility = Visibility.Visible;
             }
+            session = user;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,6 +44,14 @@ namespace CleanPCClub
             PCWindow pC = new PCWindow();
             this.Hide();
             pC.Show();
+            this.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            OrderWindow orderWindow = new OrderWindow(session);
+            this.Hide();
+            orderWindow.Show();
             this.Show();
         }
     }

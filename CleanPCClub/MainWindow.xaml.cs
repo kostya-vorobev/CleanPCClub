@@ -35,7 +35,8 @@ namespace CleanPCClub
             {
                 string buffLogin = result.ResultData.DefaultView.Table.Rows[0]["Login"].ToString();
                 string buffRole = result.ResultData.DefaultView.Table.Rows[0]["Role"].ToString();
-                Users user = new Users(buffLogin, Convert.ToInt32(buffRole));
+                int buffId = Convert.ToInt32(result.ResultData.DefaultView.Table.Rows[0]["Id"].ToString());
+                Users user = new Users(buffId, buffLogin, Convert.ToInt32(buffRole));
                 Menu menuW = new Menu(user);
                 menuW.Show(); 
 

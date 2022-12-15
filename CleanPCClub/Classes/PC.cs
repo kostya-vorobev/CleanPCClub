@@ -54,6 +54,27 @@ namespace CleanPCClub
             }
         }
 
+        public static void SearchId(ComboBox _cmb)
+        {
+            MySqlLib.MySqlData.MySqlExecuteData.MyResultData result = new MySqlLib.MySqlData.MySqlExecuteData.MyResultData();
+
+            result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset("select id from PC where status=0");
+            if (result.HasError == false)
+            {
+
+                _cmb.Items.Clear();
+                if (result.ResultData.Rows.Count == 0)
+                {
+                    _cmb.Items.Add("Сейчас нет доспутных");
+                }
+                else
+                {
+                    for (int i = 0; i < result.ResultData.Rows.Count; i++)
+                        _cmb.Items.Add(result.ResultData.Rows[i][0]);
+                }
+            }
+        }
+
         public override bool Insert()
         {
             throw new NotImplementedException();

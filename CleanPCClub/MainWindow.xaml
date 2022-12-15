@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CleanPCClub"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
-    <Grid>
-        <TextBox x:Name="login_TB" HorizontalAlignment="Left" Height="23" Margin="328,159,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="Pass_PB" HorizontalAlignment="Left" Width="120" Margin="328,210,0,0" VerticalAlignment="Top" Password="Admin"/>
-        <Button Content="Вход" HorizontalAlignment="Left" Margin="262,265,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Выход" HorizontalAlignment="Left" Margin="416,265,0,0" VerticalAlignment="Top" Width="75"/>
+        Title="Авторизация" Height="450" Width="800">
+
+    <Grid Background="#FF515151">
+        <TextBox x:Name="login_TB" HorizontalAlignment="Left" Height="23" Margin="262,159,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="229"/>
+        <PasswordBox x:Name="Pass_PB" HorizontalAlignment="Left" Width="229" Margin="262,221,0,0" VerticalAlignment="Top" Password="Admin"/>
+        <Button Content="Вход" HorizontalAlignment="Left" Margin="262,276,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Выход" HorizontalAlignment="Left" Margin="416,276,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="262,131,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="262,193,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Авторизация" HorizontalAlignment="Left" Margin="303,65,0,0" VerticalAlignment="Top" FontSize="22" Foreground="White"/>
 
     </Grid>
 </Window>

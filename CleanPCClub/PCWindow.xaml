@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:CleanPCClub"
         xmlns:control = "clr-namespace:CleanPCClub"
         mc:Ignorable="d"
-        Title="PCWindow" Height="450" Width="800">
+        Title="Компьютеры" Height="450" Width="800">
     <Grid Background="#FF515151">
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <WrapPanel x:Name="stackPanelPC" Margin="10,70,10,10" HorizontalAlignment="Stretch" Orientation="Horizontal"/>
-        <Label Content="Управление компьютерами" Margin="589,10,10,0" VerticalAlignment="Top"/>
+        <Label Content="Управление компьютерами" Margin="564,10,10,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
 
     </Grid>
 </Window>

@@ -8,23 +8,25 @@ namespace CleanPCClub
 {
     public class Users
     {
+        private int id;
         private string login;
         private int role;
+
 
         public Users()
         {
         }
 
-        public Users(string newLogin, int newRole)
+        public Users(int newId, string newLogin, int newRole)
         {
+            id = newId;
             login = newLogin;
             role = newRole;
         }
 
+        public  int Id { get => id; set => id = value; }
         public int Role { get => role; set => role = value; }
         public string Login { get => login; set => login = value; }
-
-        
 
     }
 }

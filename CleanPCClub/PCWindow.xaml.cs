@@ -29,6 +29,7 @@ namespace CleanPCClub
             for(int i =0; i <data.Table.Rows.Count; i++)
             {
                 PCControl pC = new PCControl(data[i]);
+                pC.Margin = new Thickness(5);
                 stackPanelPC.Children.Add(pC);
             }
 

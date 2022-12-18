@@ -81,8 +81,16 @@ namespace CleanPCClub
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Order order = new Order(Convert.ToInt32(pc_CMB.SelectedItem.ToString()),
-                Convert.ToInt32(dataRow.Row["Login"].ToString()), Convert.ToInt32(cost_TB.Text),
+                Convert.ToInt32(dataRow.Row["Id"].ToString()), Convert.ToInt32(cost_TB.Text),
                 DateTime.Now, DateTime.Now.AddHours(hour_CMB.SelectedIndex+1), user.Id);
+            order.Insert();
+            PC pc = new PC(Convert.ToInt32(pc_CMB.SelectedItem.ToString()));
+            pc.UpdateStatus(1);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

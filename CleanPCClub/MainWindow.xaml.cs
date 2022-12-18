@@ -38,13 +38,19 @@ namespace CleanPCClub
                 int buffId = Convert.ToInt32(result.ResultData.DefaultView.Table.Rows[0]["Id"].ToString());
                 Users user = new Users(buffId, buffLogin, Convert.ToInt32(buffRole));
                 Menu menuW = new Menu(user);
-                menuW.Show(); 
+                menuW.Show();
+                this.Close();
 
             }
             else
             {
                 MessageBox.Show(result.ErrorText);
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

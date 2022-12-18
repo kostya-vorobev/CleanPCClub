@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CleanPCClub.Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,30 +18,31 @@ using System.Windows.Shapes;
 namespace CleanPCClub
 {
     /// <summary>
-    /// Логика взаимодействия для ClientEditor.xaml
+    /// Логика взаимодействия для ManagerEditor.xaml
     /// </summary>
-    public partial class ClientEditor : Window
+    public partial class ManagerEditor : Window
     {
-        private Client clientEdit;
-        public ClientEditor(DataRowView dataRow)
+        private Managers managerEdit;
+        public ManagerEditor(DataRowView dataRow)
         {
             InitializeComponent();
-            clientEdit = new Client(dataRow);
-            Login_TB.Text = clientEdit.Login;
-            Pass_TB.Text = clientEdit.Password;
-            Name_TB.Text = clientEdit.Name;
-            LastName_TB.Text = clientEdit.LastName;
-            Phone_TB.Text = clientEdit.Phone;
-            DateBrith_DP.SelectedDate = clientEdit.DateBrith;
-            Email_TB.Text = clientEdit.Email;
-            headerLabel.Content = "Изменение данных клиента";
+            managerEdit = new Managers(dataRow);
+            Name_TB.Text = managerEdit.Name;
+            LastName_TB.Text = managerEdit.LastName;
+            Phone_TB.Text = managerEdit.Phone;
+            DateBrith_DP.SelectedDate = managerEdit.DateBrith;
+            Email_TB.Text = managerEdit.Email;
+            Login_TB.Text = managerEdit.Login;
+            Pass_TB.Text = managerEdit.Pass;
+            salary_TB.Text = managerEdit.Salary.ToString();
+            headerLabel.Content = "Изменение данных менеджера";
             Grand_B.Content = "Обновить";
         }
-        public ClientEditor()
+        public ManagerEditor()
         {
             InitializeComponent();
-            clientEdit = new Client();
-            clientEdit = null;
+            managerEdit = new Managers();
+            managerEdit = null;
         }
 
 
@@ -49,12 +51,12 @@ namespace CleanPCClub
         {
             try
             {
-                if (Client.SearchLogin(Login_TB.Text))
+                if (Managers.SearchLogin(Login_TB.Text))
                 {
                     CheckData();
-                    Client client = new Client(Login_TB.Text, Pass_TB.Text, Name_TB.Text, LastName_TB.Text,
-                        DateBrith_DP.SelectedDate.Value, Phone_TB.Text, Email_TB.Text);
-                    if (client.Insert())
+                    Managers manager = new Managers(Login_TB.Text, Pass_TB.Text, Name_TB.Text, LastName_TB.Text,
+                        DateBrith_DP.SelectedDate.Value, Phone_TB.Text, Email_TB.Text, Convert.ToInt32(salary_TB.Text));
+                    if (manager.Insert())
                     {
                         MessageBox.Show("Успешно");
                     }
@@ -75,7 +77,7 @@ namespace CleanPCClub
         }
         private void Grand_Click(object sender, RoutedEventArgs e)
         {
-            if (clientEdit != null)
+            if (managerEdit != null)
             {
                 Update();
             }
@@ -88,6 +90,8 @@ namespace CleanPCClub
         {
             if (Login_TB.Foreground == Brushes.Red)
                 throw new Exception("Логин введен некорерктно");
+            if (salary_TB.Foreground == Brushes.Red)
+                throw new Exception("Заработная плата введена некорерктно");
             if (Pass_TB.Foreground == Brushes.Red)
                 throw new Exception("Пароль введен некорерктно");
             if (Name_TB.Foreground == Brushes.Red)
@@ -105,16 +109,16 @@ namespace CleanPCClub
         {
             try
             {
-                if (clientEdit.Login != Login_TB.Text)
-                    if (!Client.SearchLogin(Login_TB.Text))
+                if (managerEdit.Login != Login_TB.Text)
+                    if (!Managers.SearchLogin(Login_TB.Text))
                         throw new Exception("Данынй логин занят, попробуйте другой");
+                    else managerEdit.Login = Login_TB.Text;
                 CheckData();
-                Client client = new Client(clientEdit.Id, Login_TB.Text, Pass_TB.Text, Name_TB.Text, LastName_TB.Text,
-                    DateBrith_DP.SelectedDate.Value, Phone_TB.Text, Email_TB.Text);
+                Managers client = new Managers(managerEdit.Id, Login_TB.Text, Pass_TB.Text, Name_TB.Text, LastName_TB.Text,
+                    DateBrith_DP.SelectedDate.Value, Phone_TB.Text, Email_TB.Text, Convert.ToInt32(salary_TB.Text), managerEdit.IdUser);
                 if (client.Update())
                 {
                     MessageBox.Show("Успешно");
-                    clientEdit.Login = clientEdit.Login;
                 }
                 else
                 {
@@ -180,9 +184,10 @@ namespace CleanPCClub
                 }
                 else
                 {
-                    DateBrith_DP.Foreground = Brushes.WhiteSmoke;
+                    DateBrith_DP.Foreground = Brushes.Black;
                 }
-            }catch
+            }
+            catch
             {
 
             }
@@ -229,5 +234,18 @@ namespace CleanPCClub
             return ToString();
         }
 
+        private void salary_TB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            Regex rex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+            if (rex.IsMatch(salary_TB.Text))
+            {
+                salary_TB.Foreground = Brushes.WhiteSmoke;
+            }
+            else
+            {
+                salary_TB.Foreground = Brushes.Red;
+            }
+        }
     }
 }

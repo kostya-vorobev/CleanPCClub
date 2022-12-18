@@ -58,7 +58,7 @@ namespace CleanPCClub
         {
             MySqlLib.MySqlData.MySqlExecuteData.MyResultData result = new MySqlLib.MySqlData.MySqlExecuteData.MyResultData();
 
-            result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset("select id from PC where status=0");
+            result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset("select id from PC where STATUS=0");
             if (result.HasError == false)
             {
 

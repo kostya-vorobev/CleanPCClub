@@ -92,7 +92,7 @@ namespace CleanPCClub
                 "('" + this.idPC + "', '" + this.idClient + "'," +
                 "'" + this.cost + "','" + this.startTime.ToString("hh:mm:ss") 
                 + "','" + finishTime.ToString("hh:mm:ss") + "','" + this.idManager + "')";
-            result = MySqlLib.MySqlData.MySqlExecute.SqlScalar(query);
+            result = MySqlLib.MySqlData.MySqlExecute.SqlNoneQuery(query);
             if (result.HasError == false)
             {
                 return true;

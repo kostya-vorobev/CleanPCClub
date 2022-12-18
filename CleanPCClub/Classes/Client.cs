@@ -50,6 +50,10 @@ namespace CleanPCClub
             this.email = dataTable["Email"].ToString();
         }
 
+        public Client(string login, string password, string name, string lastName, DateTime dateBrith, string phone, string email, object p) : this(login, password, name, lastName, dateBrith, phone, email)
+        {
+        }
+
         public override int Id { get => id; set => id = value; }
         public string Login { get => login; set => login = value; }
         public string Password { get => password; set => password = value; }
@@ -79,7 +83,7 @@ namespace CleanPCClub
                 "('" + this.Login + "', '" + this.Password + "'," +
                 "'" + this.Name + "','" + this.LastName + "','" + this.DateBrith.Year + "-" + this.DateBrith.Month + "-"
                 + this.DateBrith.Day + "','" + this.Phone + "'," + "'" + this.Email + "')";
-            result = MySqlLib.MySqlData.MySqlExecute.SqlScalar(query);
+            result = MySqlLib.MySqlData.MySqlExecute.SqlNoneQuery(query);
             if (result.HasError == false)
             {
                 return true;
@@ -133,7 +137,7 @@ namespace CleanPCClub
             string select = "select * from Clients where Login='" + find + "'";
 
             result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(select);
-            if (result.ResultData.DefaultView.Table.Rows.Count == 1)
+            if (result.ResultData.DefaultView.Table.Rows.Count == 0)
             {
                 return true;
             }else return false;

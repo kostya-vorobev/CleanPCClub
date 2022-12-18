@@ -35,7 +35,7 @@ namespace CleanPCClub
         {
             ClientWindow clientWindow = new ClientWindow();
             this.Hide();
-            clientWindow.Show();
+            clientWindow.ShowDialog();
             this.Show();
         }
 
@@ -43,7 +43,7 @@ namespace CleanPCClub
         {
             PCWindow pC = new PCWindow();
             this.Hide();
-            pC.Show();
+            pC.ShowDialog();
             this.Show();
         }
 
@@ -51,7 +51,22 @@ namespace CleanPCClub
         {
             OrderWindow orderWindow = new OrderWindow(session);
             this.Hide();
-            orderWindow.Show();
+            orderWindow.ShowDialog();
+            this.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void managerReg_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerWindow managerWindow = new ManagerWindow();
+            this.Hide();
+            managerWindow.ShowDialog();
             this.Show();
         }
     }

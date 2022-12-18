@@ -79,11 +79,18 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\Human.cs" />
+    <Compile Include="Classes\Managers.cs" />
     <Compile Include="ClientEditor.xaml.cs">
       <DependentUpon>ClientEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerEditor.xaml.cs">
+      <DependentUpon>ManagerEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -98,7 +105,7 @@
       <DependentUpon>PCWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Table.cs" />
-    <Compile Include="PCControl.xaml.cs">
+    <Compile Include="Contols\PCControl.xaml.cs">
       <DependentUpon>PCControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Users.cs" />
@@ -122,6 +129,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagerEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,7 +169,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PCControl.xaml">
+    <Page Include="Contols\PCControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

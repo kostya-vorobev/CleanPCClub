@@ -32,6 +32,8 @@ namespace CleanPCClub
             for (int i = 1; i <= 5; i++)
                 hour_CMB.Items.Add(i);
             user = users;
+            dataGridClient.Foreground = Brushes.Black;
+            dataGridOrder.Foreground = Brushes.Black;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

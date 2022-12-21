@@ -8,13 +8,22 @@
              d:DesignHeight="300" Width="250">
     <Grid Margin="0,0,0,0">
         <Border BorderBrush="White" CornerRadius="3" BorderThickness="2" >
-        <StackPanel HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="230">
-            <Label x:Name="pcId" Content="Компьютер"/>
-            <Image Height="100" Source="..\Resource\pc.png" OpacityMask="White"/>
-            <Label x:Name="pcLoginClient" Content="Логин" Margin="0,10,0,0"/>
-            <Label x:Name="pcStatus" Content="Занят"/>
-            <Button x:Name="pcButton" Content="Заблокировать" Margin="0,40,0,0" Click="pcButton_Click"/>
-        </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="230">
+                <DockPanel >
+                    <StackPanel Orientation="Vertical">
+                        <Label x:Name="pcId" Content="Компьютер" Width="136"/>
+                    </StackPanel>
+                    <DockPanel>
+                        <Ellipse Fill="Lime" Height="10"  Width="10" Name="OnlineLight" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                        <Label x:Name="OnlineStatus"  Content="В сети" Width="75" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                </DockPanel>
+                <Image Height="100" Source="..\Resource\pc.png" OpacityMask="White"/>
+                <Label x:Name="pcLoginClient" Content="Логин" Margin="0,10,0,0"/>
+                <Label x:Name="pcStatus" Content="Занят"/>
+                <Button x:Name="pcButton" Content="Заблокировать" Margin="0,40,0,0" Click="pcButton_Click"/>
+            </StackPanel>
         </Border>
     </Grid>
 </UserControl>

@@ -7,6 +7,7 @@
         xmlns:control = "clr-namespace:CleanPCClub"
         mc:Ignorable="d"
         Title="Заказы" Height="535" Width="1171.667">
+    
     <Grid Background="#FF515151">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="198*"/>
@@ -15,19 +16,43 @@
         <TextBox x:Name="searchClient_TB" HorizontalAlignment="Left" Height="23" Margin="10,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
         <Button Content="Создать" HorizontalAlignment="Left" Margin="448,10,0,0" VerticalAlignment="Top" Width="122" Grid.Column="1" Click="Button_Click_2"/>
-        <DataGrid x:Name="dataGridClient" Margin="10,127,10,10">
+        <DataGrid x:Name="dataGridClient" Margin="10,127,10,10" ColumnWidth="*" AutoGenerateColumns="False" AlternatingRowBackground="#FF515151" AlternationCount="1" RowBackground="#FF515151" Background="#FF515151" BorderBrush="#FF181818" OpacityMask="Red">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Зафиксировать" Click="SelectClient_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="id"/>
+                <DataGridTextColumn Binding="{Binding Login}" ClipboardContentBinding="{x:Null}" Header="Логин"/>
+                <DataGridTextColumn Binding="{Binding Password}" ClipboardContentBinding="{x:Null}" Header="Пароль"/>
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Имя"/>
+                <DataGridTextColumn Binding="{Binding Last_name}" ClipboardContentBinding="{x:Null}" Header="Фамилия"/>
+                <DataGridTextColumn Binding="{Binding Date_brith}" ClipboardContentBinding="{x:Null}" Header="Дата рождения"/>
+                <DataGridTextColumn Binding="{Binding Phone}" ClipboardContentBinding="{x:Null}" Header="Телефон"/>
+                <DataGridTextColumn Binding="{Binding Email}" ClipboardContentBinding="{x:Null}" Header="Email"/>
+
+            </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="dataGridOrder" Grid.Column="1" Margin="10,127,12,10">
+        <DataGrid x:Name="dataGridOrder" Grid.Column="1" Margin="10,127,12,10" ColumnWidth="*" AutoGenerateColumns="False" AlternatingRowBackground="#FF515151" AlternationCount="1" RowBackground="#FF515151" Background="#FF515151" BorderBrush="#FF181818" OpacityMask="Red">
+
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Редактировать" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="id">
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PC}" ClipboardContentBinding="{x:Null}" Header="Номер ПК"/>
+                <DataGridTextColumn Binding="{Binding Login}" ClipboardContentBinding="{x:Null}" Header="Логин"/>
+                <DataGridTextColumn Binding="{Binding cost}" ClipboardContentBinding="{x:Null}" Header="Стоимость"/>
+                <DataGridTextColumn Binding="{Binding Time_Start}" ClipboardContentBinding="{x:Null}" Header="Время начала"/>
+                <DataGridTextColumn Binding="{Binding Time_Finish}" ClipboardContentBinding="{x:Null}" Header="Время конца"/>
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Имя"/>
+                <DataGridTextColumn Binding="{Binding Last_Name}" ClipboardContentBinding="{x:Null}" Header="Фамилия"/>
+
+            </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="searchOrder_TB" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="452,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="pc_CMB" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="153"/>

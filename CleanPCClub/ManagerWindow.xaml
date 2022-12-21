@@ -7,21 +7,22 @@
         mc:Ignorable="d"
         Title="Manager" Height="450" Width="800">
     <Grid Background="#FF515151">
-        <DataGrid x:Name="dataGridManagers" Margin="0,98,0,0" ColumnWidth="*" IsTextSearchCaseSensitive="True" IsTextSearchEnabled="True" Background="White" BorderBrush="#FF3179BF" Foreground="#FFECECEC">
+        <DataGrid x:Name="dataGridManagers" Margin="0,98,0,0" ColumnWidth="*" IsTextSearchCaseSensitive="True" AutoGenerateColumns="False" IsTextSearchEnabled="True" AlternatingRowBackground="#FF515151" AlternationCount="1" RowBackground="#FF515151" Background="#FF515151" BorderBrush="#FF181818" OpacityMask="Red">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Редактировать" Click="EditRecord"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="id"/>
-                <DataGridTextColumn Binding="{Binding login}" ClipboardContentBinding="{x:Null}" Header="Логин"/>
-                <DataGridTextColumn Binding="{Binding password}" ClipboardContentBinding="{x:Null}" Header="Пароль"/>
-                <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="Имя"/>
-                <DataGridTextColumn Binding="{Binding lastName}" ClipboardContentBinding="{x:Null}" Header="Фамилия"/>
-                <DataGridTextColumn Binding="{Binding dateBrith}" ClipboardContentBinding="{x:Null}" Header="Дата рождения"/>
+                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="id"/>
+
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Имя"/>
+                <DataGridTextColumn Binding="{Binding Last_Name}" ClipboardContentBinding="{x:Null}" Header="Фамилия"/>
+                <DataGridTextColumn Binding="{Binding Date_Brith}" ClipboardContentBinding="{x:Null}" Header="Дата рождения"/>
                 <DataGridTextColumn Binding="{Binding Phone}" ClipboardContentBinding="{x:Null}" Header="Телефон"/>
-                <DataGridTextColumn Binding="{Binding email}" ClipboardContentBinding="{x:Null}" Header="Email"/>
+                <DataGridTextColumn Binding="{Binding Email}" ClipboardContentBinding="{x:Null}" Header="Email"/>
+                <DataGridTextColumn Binding="{Binding Salary}" ClipboardContentBinding="{x:Null}" Header="Ставка"/>
+                <DataGridTextColumn Binding="{Binding Id_User}" ClipboardContentBinding="{x:Null}" Header="Номер учетной записи"/>
 
             </DataGrid.Columns>
         </DataGrid>

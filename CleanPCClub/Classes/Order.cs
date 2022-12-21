@@ -60,7 +60,6 @@ namespace CleanPCClub
             result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(selectQuery);
             if (result.HasError == false)
             {
-                _dgv.Columns.Clear();
                 _dgv.ItemsSource = result.ResultData.DefaultView;
             }
         }
@@ -79,7 +78,6 @@ namespace CleanPCClub
             result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(select);
             if (result.HasError == false)
             {
-                _dgv.Columns.Clear();
                 _dgv.ItemsSource = result.ResultData.DefaultView;
             }
         }
@@ -90,8 +88,8 @@ namespace CleanPCClub
             string query = "INSERT INTO `pcclub`.`order` " +
                 "(`Id_PC`, `Id_Client`, `Cost`, `Time_Start`, `Time_Finish`, `Id_Manager`) VALUES " +
                 "('" + this.idPC + "', '" + this.idClient + "'," +
-                "'" + this.cost + "','" + this.startTime.ToString("hh:mm:ss") 
-                + "','" + finishTime.ToString("hh:mm:ss") + "','" + this.idManager + "')";
+                "'" + this.cost + "','" + this.startTime.ToString("HH:mm:ss") 
+                + "','" + finishTime.ToString("HH:mm:ss") + "','" + this.idManager + "')";
             result = MySqlLib.MySqlData.MySqlExecute.SqlNoneQuery(query);
             if (result.HasError == false)
             {

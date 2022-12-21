@@ -7,11 +7,15 @@
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
     <Grid Background="#FF515151">
-        <Button Content="Клиенты" HorizontalAlignment="Left" Margin="116,70,0,0" VerticalAlignment="Top" Width="154" Height="50" Click="Button_Click"/>
-        <Button Content="Компьютеры" HorizontalAlignment="Left" Margin="292,70,0,0" VerticalAlignment="Top" Width="154" Height="50" Click="Button_Click_1"/>
-        <Button Content="Заказы" HorizontalAlignment="Left" Margin="474,70,0,0" VerticalAlignment="Top" Width="154" Height="50" Click="Button_Click_2"/>
-        <Button x:Name="managerReg" Content="Регистрация менеджера" HorizontalAlignment="Left" Margin="292,140,0,0" VerticalAlignment="Top" Width="154" Height="50" Visibility="Hidden" Click="managerReg_Click"/>
-        <Button Content="Выход" Margin="0,0,10,10" HorizontalAlignment="Right" Width="154" Height="50" VerticalAlignment="Bottom" Click="Button_Click_3"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Клиенты" HorizontalAlignment="Left" Margin="116,26.5,0,0" VerticalAlignment="Top" Width="154" Height="50" Click="Button_Click" Grid.Row="1"/>
+        <Button Content="Компьютеры" HorizontalAlignment="Left" Margin="292,26.5,0,0" VerticalAlignment="Top" Width="154" Height="50" Click="Button_Click_1" Grid.Row="1"/>
+        <Button Content="Заказы" HorizontalAlignment="Left" Margin="474,26.5,0,0" VerticalAlignment="Top" Width="154" Height="50" Click="Button_Click_2" Grid.Row="1"/>
+        <Button x:Name="managerReg" Content="Регистрация менеджера" HorizontalAlignment="Left" Margin="116,96.5,0,0" VerticalAlignment="Top" Width="512" Height="50" Click="managerReg_Click" Grid.Row="1"/>
+        <Button Content="Выход" Margin="0,0,10,10" HorizontalAlignment="Right" Width="154" Height="50" VerticalAlignment="Bottom" Click="Button_Click_3" Grid.Row="1"/>
         <Label x:Name="name" Content="Имя" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="308" Foreground="White"/>
 
     </Grid>

@@ -70,7 +70,6 @@ namespace CleanPCClub
             result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset("select * from Clients");
             if (result.HasError == false)
             {
-                _dgv.Columns.Clear();
                 _dgv.ItemsSource = result.ResultData.DefaultView;
             }
         }
@@ -126,7 +125,6 @@ namespace CleanPCClub
             result = MySqlLib.MySqlData.MySqlExecuteData.SqlReturnDataset(select);
             if (result.HasError == false)
             {
-                _dgv.Columns.Clear();
                 _dgv.ItemsSource = result.ResultData.DefaultView;
             }
         }
